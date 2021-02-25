@@ -17,11 +17,17 @@ git checkout -- <file name> ：用版本库最后一次提交的文件替换工�
 ## 分支操作
 
 git branch 查看分支
+
 git branch <branch name>创建分支
+
 git branch -d <branch name> 删除分支
+
 git checkout <branch name>切换分支
+
 git merge <branch name> 将<branch name>分支合并到当前分支
+
 git branch --merged 查看已经合并到当前分支的所有分支
+
 git branch --no-merged 查看还末合并到当前分支的所有分支
 
 
