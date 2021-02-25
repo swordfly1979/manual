@@ -29,6 +29,3 @@ git merge <branch name> 将<branch name>分支合并到当前分支
 git branch --merged 查看已经合并到当前分支的所有分支
 
 git branch --no-merged 查看还末合并到当前分支的所有分支
-
-
-
