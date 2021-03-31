@@ -1,4 +1,4 @@
-* [说明](github/README.md)
+* [说明](readme.md)
 
 # github使用
 
