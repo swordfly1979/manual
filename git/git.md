@@ -12,8 +12,6 @@ git rm --cached <file name>：移除暂存区的文件(文件还未提交到版�
 git reset HEAD <file name>：移除暂存区的文件（文件已经提交过）
 git checkout -- <file name> ：用版本库最后一次提交的文件替换工作区同名文件（文件更改撤消，-- 与文件名有空格）
 
-
-
 ## 分支操作
 
 git branch 查看分支
@@ -29,3 +27,14 @@ git merge <branch name> 将<branch name>分支合并到当前分支
 git branch --merged 查看已经合并到当前分支的所有分支
 
 git branch --no-merged 查看还末合并到当前分支的所有分支
+
+## Clone指定目录
+
+```bash
+$ git init
+$ git remote add origin  远程仓库地址
+$ git config core.sparsecheckout true
+$ echo "子目录名称" >> .git/info/sparse-checkout
+$ git pull origin master
+```
+
