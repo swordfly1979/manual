@@ -1,6 +1,4 @@
-# Summary
-
-* [Introduction](README.md)
+* [说明](README.md)
 
 # github使用
 
