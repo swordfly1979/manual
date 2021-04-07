@@ -1,20 +1,11 @@
 {
-  "plugins": [
-    "collapsible-menu",
-    "anchor-navigation-ex",
-    "tbfed-pagefooter",
-    "disqus",
-    "expandable-chapters"
-  ],
+  "plugins": ["chapter-fold", "expandable-chapters", "anchor-navigation-ex"],
   "title": "常用手册",
   "pluginsConfig": {
-    "tbfed-pagefooter": {
-      "copyright": "Copyright2019",
-      "modify_label": "2021.3.31",
-      "modify_format": "2021.3.31"
-    },
-    "disqus": {
-      "shortName": "gitbookuse"
+    "chapter-fold": {},
+    "anchor-navigation-ex": {
+      "showLevel": false,
+      "showGoTop": false
     }
   }
 }

@@ -1,6 +1,5 @@
 * [说明](readme.md)
 
-# github使用
-
-* [git命令](github/github.md)
-
+* [linux常用工具](linux/linux.md)
+    * [github](linux/github.md)
+    * [nodejs](linux/nodejs.md)
