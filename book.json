@@ -1,5 +1,11 @@
 {
-  "plugins": ["chapter-fold", "expandable-chapters", "anchor-navigation-ex"],
+  "plugins": [
+    "chapter-fold",
+    "expandable-chapters",
+    "anchor-navigation-ex",
+    "back-to-top-button",
+    "accordion"
+  ],
   "title": "常用手册",
   "pluginsConfig": {
     "chapter-fold": {},
