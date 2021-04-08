@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>linux常用工具 · 常用手册</title>
+        <title>pdf合并/压缩 · 常用手册</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="">
         <meta name="generator" content="GitBook 3.2.3">
@@ -69,10 +69,10 @@
     <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="github.html" />
+    <link rel="next" href="5.html" />
     
     
-    <link rel="prev" href="../" />
+    <link rel="prev" href="gitbook.html" />
     
 
     </head>
@@ -114,7 +114,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2" data-path="linux.html">
+        <li class="chapter " data-level="1.2" data-path="linux.html">
             
                 <a href="linux.html">
             
@@ -167,7 +167,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="4.html">
+        <li class="chapter active" data-level="1.2.4" data-path="4.html">
             
                 <a href="4.html">
             
@@ -273,7 +273,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >linux常用工具</a>
+        <a href=".." >pdf合并/压缩</a>
     </h1>
 </div>
 
@@ -288,8 +288,21 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <p><a href="github.html">github</a></p>
-<p><a href="nodejs.html">nodejs</a></p>
+                                <blockquote>
+<p>linux&#x4E0B;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x7528;gs&#xFF08;GhostScript&#xFF09;&#x547D;&#x4EE4;&#x8FDB;&#x884C;PDF&#x7684;&#x539F;&#x751F;&#x64CD;&#x4F5C;</p>
+</blockquote>
+<pre><code class="lang-bash"><span class="hljs-comment">#&#x5B89;&#x88C5;gs</span>
+sudo apt install gs 
+<span class="hljs-comment"># &#x5408;&#x5E76;&#x591A;&#x4E2A;PDF&#x4E3A;1&#x4E2A;</span>
+gs<span class="hljs-_">-d</span>NOPAUSE <span class="hljs-_">-s</span>DEVICE=pdfwrite <span class="hljs-_">-s</span>OUTPUTFILE=target.pdf <span class="hljs-_">-d</span>BATCH1.pdf2.pdf ... n.pdf
+<span class="hljs-comment"># &#x5355;&#x4E2A;PDF&#x538B;&#x7F29;</span>
+gs <span class="hljs-_">-s</span>DEVICE=pdfwrite <span class="hljs-_">-d</span>CompatibilityLevel=1.4 <span class="hljs-_">-d</span>PDFSETTINGS=/prepress <span class="hljs-_">-d</span>NOPAUSE <span class="hljs-_">-d</span>QUIET <span class="hljs-_">-d</span>BATCH <span class="hljs-_">-s</span>OutputFile=output.pdf input.pdf
+<span class="hljs-comment">#-dPDFSETTINGS &#x53C2;&#x6570;&#x63CF;&#x8FF0;&#xFF1A;</span>
+   <span class="hljs-comment">#/prepress &#xFF1A;&#x8D28;&#x91CF;&#x6700;&#x597D;&#xFF0C;&#x6587;&#x4EF6;&#x6700;&#x5927;</span>
+   <span class="hljs-comment">#/printer &#xFF1A;&#x6253;&#x5370;&#x6A21;&#x5F0F;&#xFF0C;&#x63A8;&#x8350;&#x538B;&#x7F29;</span>
+   <span class="hljs-comment">#/ebook &#xFF1A; &#x7535;&#x5B50;&#x4E66;&#x6A21;&#x5F0F;&#xFF0C;&#x9002;&#x5408;&#x6587;&#x672C;</span>
+   <span class="hljs-comment">#/screen &#xFF1A;&#x6587;&#x4EF6;&#x6700;&#x5C0F;&#xFF0C;&#x4E0D;&#x63A8;&#x8350;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -317,12 +330,12 @@
 
             
                 
-                <a href="../" class="navigation navigation-prev " aria-label="Previous page: 说明">
+                <a href="gitbook.html" class="navigation navigation-prev " aria-label="Previous page: gitbook">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="github.html" class="navigation navigation-next " aria-label="Next page: github">
+                <a href="5.html" class="navigation navigation-next " aria-label="Next page: dd命令制作usb启动盘">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -333,7 +346,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"linux常用工具","level":"1.2","depth":1,"next":{"title":"github","level":"1.2.1","depth":2,"path":"linux/github.md","ref":"linux/github.md","articles":[]},"previous":{"title":"说明","level":"1.1","depth":1,"path":"readme.md","ref":"readme.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex","back-to-top-button","accordion"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"linux/linux.md","mtime":"2021-04-07T03:10:38.722Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-08T00:03:54.224Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"pdf合并/压缩","level":"1.2.4","depth":2,"next":{"title":"dd命令制作usb启动盘","level":"1.2.5","depth":2,"path":"linux/5.md","ref":"linux/5.md","articles":[]},"previous":{"title":"gitbook","level":"1.2.3","depth":2,"path":"linux/gitbook.md","ref":"linux/gitbook.md","articles":[]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex","back-to-top-button","accordion"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"accordion":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"associatedWithSummary":true,"float":{"floatIcon":"fa fa-navicon","level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"mode":"float","multipleH1":true,"pageTop":{"level1Icon":"","level2Icon":"","level3Icon":"","showLevelIcon":false},"printLog":false,"showGoTop":false,"showLevel":false},"back-to-top-button":{},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"linux/4.md","mtime":"2021-04-07T08:35:19.610Z","type":"markdown"},"gitbook":{"version":"3.2.3","time":"2021-04-08T00:03:54.224Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
