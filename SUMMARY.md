@@ -9,3 +9,4 @@
 * [linux服务器配置](linuxServer/0.md)
     * [oneinstack域名证书](linuxServer/1.md)
     * [nginx配置](linuxServer/2.md)
+    * [通过公钥登录](linuxServer/3.md)
