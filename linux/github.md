@@ -12,9 +12,17 @@ git commit --amend #修改最后一次提交的日志说明
 git rm --cached <file name> #移除暂存区的文件(文件还未提交到版本库)
 git reset HEAD <file name> #移除暂存区的文件（文件已经提交过）
 git checkout -- <file name> #用版本库最后一次提交的文件替换工作区同名文件（文件更改撤消，-- 与文件名有空格）
+
+git ls-files -s #查看暂存区文件
+git cat-file -t <file name> #查看.git库文件类型
+git cat-file -p <file name> #查看git库文件内容
 ```
 
-## 本地仓库与远程仓库交互
+# git存储结构图
+
+<img src="images/image-20210818113648808.png" alt="image-20210818113648808" style="zoom:50%;" />
+
+# 本地仓库与远程仓库交互
 
 ```bash
 git clone <远程库地址> #克隆远程库 功能：①完整的克隆远程库为本地库，②为本地库新建origin别名，③初始化本地库
