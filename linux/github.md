@@ -1,5 +1,26 @@
 # Git常用命令
 
+> ### shell命令行显示当前分支
+
+```bash
+# 编辑~/.bashrc 文件，末尾加入如下代码
+# shell show git branch name
+function git_branch {
+        branch="`git branch 2>/dev/null | grep "^\*" | sed -e "s/^\*\ //"`"
+        if [ "${branch}" != "" ];then
+                if [ "${branch}" = "(no branch)" ];then
+                        branch="(`git rev-parse --short HEAD`...)"
+                fi
+                echo " git:($branch)"
+        fi
+}
+export PS1='\u@:\w\[\033[01;31m\]$(git_branch)\[\033[00m\]\$ '
+# 执行如下命令生效
+source ~/.bashrc
+```
+
+
+
 ## 本地操作
 
 ```bash
