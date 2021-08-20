@@ -27,6 +27,7 @@ source ~/.bashrc
 git init #初始化本地库
 git status #查看工作区、暂存区的状态
 git log #查看本地仓库提交记录
+git reflog #可以查看所有分支的所有操作记录（包括已经被删除的 commit 记录和 reset 的操作）
 git add <file name> #将工作区的文件添加到暂存区(git add . 将所有文件添加到暂存区)
 git commit -m "提交日志" #文件从暂存区提交到本地仓库
 git commit --amend #修改最后一次提交的日志说明
