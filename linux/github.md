@@ -38,6 +38,10 @@ git checkout -- <file name> #用版本库最后一次提交的文件替换工作
 git ls-files -s #查看暂存区文件
 git cat-file -t <file name> #查看.git库文件类型
 git cat-file -p <file name> #查看git库文件内容
+#fill system check 文件系统检查，用来对本地和远程仓库的一致性检查，dangling objects悬空对象在悬空对象列表中，使用git show commitId查看悬空记录的详情
+git fsck
+git prune #删除有不可访问的对象（垃圾对像）
+
 ```
 
 # git存储结构图
