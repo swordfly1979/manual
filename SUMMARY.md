@@ -1,5 +1,4 @@
 * [说明](readme.md)
-
 * [linux常用工具](linux/linux.md)
     * [github](linux/github.md)
     * [nodejs](linux/nodejs.md)
@@ -9,7 +8,10 @@
     * [linux使用技巧](linux/6.md)
     * [yarn、npm使用](linux/7.md)
 * [linux服务器配置](linuxServer/0.md)
-    * [oneinstack域名证书](linuxServer/1.md)
+    * [oneinstack域名证书](linuxServer/ssl.md)
     * [nginx配置](linuxServer/nginx.md)
-    * [通过公钥登录](linuxServer/3.md)
+    * [通过公钥登录](linuxServer/ssh-login.md)
+    * [linux服务管理](linuxServer/systemd.md)
+* [网页相关](web/0.md)
+    * [页面常用技巧](web/jiqiao.md)
 
