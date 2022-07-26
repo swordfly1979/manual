@@ -56,6 +56,7 @@ git remote -v #查看远程库地址别名
 git remote add <别名> <远程库地址> #新建远程库地址别名
 git remote rm <别名> #删除本地中远程库别名
 git push <别名> <分支名> #本地库某个分支推送到远程库，分支必须指定
+git push --set-upstream <别名> <分支名> #本地分支与远程分支关联，以后直接git push
 git pull <别名> <分支名> #把远程库的修改拉取到本地
 git pull <别名> <分支名> --allow-unrelated-histories #拉取远程仓库合并本地
 ```
