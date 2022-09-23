@@ -7,6 +7,7 @@
     * [dd命令制作usb启动盘](linux/5.md)
     * [linux使用技巧](linux/6.md)
     * [yarn、npm使用](linux/7.md)
+    * [iptables防火墙简单应用](linux/8.md)
 * [linux服务器配置](linuxServer/0.md)
     * [oneinstack域名证书](linuxServer/ssl.md)
     * [nginx配置](linuxServer/nginx.md)
