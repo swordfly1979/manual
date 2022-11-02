@@ -21,3 +21,22 @@ npm install -g n
 export N_PREFIX=/home/node-v6.9.0-linux-x64/ #自己定义的node实际安装位置
 ~~~
 
+# pm2安装
+
+```bash
+npm i pm2 -g
+```
+
+## pm2常用命令
+
+```bash
+#查看pm2运行列表
+pm2 list
+#添加服务(注意-- run中间有空格)
+pm2 start npm --name "your app name" -- run start
+#起动或停止pm2
+pm2 stop app name|app id
+```
+
+
+
