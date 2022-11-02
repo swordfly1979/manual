@@ -1,0 +1,7 @@
+.markdown-section blockquote {
+  border-left-color: #42b983;
+  border-left-width: .5rem;
+  padding: 0 15px;
+  color: #000000;
+  background-color: #f3f5f7;
+}
