@@ -13,7 +13,7 @@ gitbook -V #查看是否安装正常
 gitbook init #初始化文件夹
 gitbook install #安装依赖
 gitbook serve #运行服务
-gitbook build #把文件编译成html格式
+gitbook build [gitbook项目路径] [编译目录，默认_book] #把文件编译成html格式
 ```
 
 # 配置及插件使用
