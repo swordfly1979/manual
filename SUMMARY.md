@@ -16,4 +16,5 @@
 * [网页相关](web/0.md)
     * [页面常用技巧](web/jiqiao.md)
     * [pwa webapp](web/pwa.md)
+    * [vite插件](web/vite.md)
 
