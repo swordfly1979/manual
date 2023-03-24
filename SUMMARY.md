@@ -9,7 +9,7 @@
     * [yarn、npm使用](linux/7.md)
     * [iptables防火墙简单应用](linux/8.md)
 * [linux服务器配置](linuxServer/0.md)
-    * [oneinstack域名证书](linuxServer/ssl.md)
+    * [acme.sh域名证书管理](linuxServer/ssl.md)
     * [nginx配置](linuxServer/nginx.md)
     * [通过公钥登录](linuxServer/ssh-login.md)
     * [linux服务管理](linuxServer/systemd.md)

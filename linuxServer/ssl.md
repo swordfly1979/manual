@@ -15,5 +15,5 @@
 
 > 证书配置文件中 Le_Webroot=" " 配置指向的目录为访问到网站的根目录。如果网站做了转向（如301跳转），此目录一定为跳转后所指向的目录。否则域名证书验证无法通过
 
-github 说明文档 https://github.com/acmesh-official/acme.sh/wiki/%E8%AF%B4%E6%98%8E
+acme.sh官网查看具体使用说明 https://github.com/acmesh-official/acme.sh
 
