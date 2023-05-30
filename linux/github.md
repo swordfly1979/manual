@@ -71,6 +71,10 @@ git checkout <branch name> #切换分支
 git merge <branch name> #将<branch name>分支合并到当前分支
 git branch --merged #查看已经合并到当前分支的所有分支
 git branch --no-merged #查看还末合并到当前分支的所有分支
+#切换分支保留工作区内容（如当前在dev分支，如想到master分支可执行如下命令）
+git worktree add ../url-master(与当前项目同级目录创建新项目) master(要切换的分支名)
+git worktree list #查看worktree
+git worktree remove url(目录名) #删除worktree
 ```
 
 ## 关于tag标签命令
@@ -111,7 +115,7 @@ git pull origin master #取远程master分支上的内容
  #删除子模块
  git submodule deinit subPath/
  git rm subpath
- rm -rf .got/modules/subPath
+ rm -rf .git/modules/subPath
  #克隆包含子模块的项目
  	#方式一
         1 git clone #克隆主项目
@@ -120,6 +124,8 @@ git pull origin master #取远程master分支上的内容
         git submodule update --init --recursive #同时执行2、3步
 	#方式二
 		git clone --recurse-submodules url #直接执行此命令克隆项目
+ #更新子模块项目
+ git submodule update --remote
 ```
 
 
