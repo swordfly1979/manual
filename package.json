@@ -1,0 +1,31 @@
+{
+  "name": "manual",
+  "version": "1.0.0",
+  "description": "readme",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swordfly1979/manual.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swordfly1979/manual/issues"
+  },
+  "homepage": "https://github.com/swordfly1979/manual#readme",
+  "devDependencies": {
+    "honkit": "^6.2.2"
+  },
+  "dependencies": {
+    "gitbook-plugin-anchor-navigation-ex": "^1.0.14",
+    "gitbook-plugin-chapter-fold": "^0.0.4",
+    "gitbook-plugin-expandable-chapters": "^0.2.0"
+  }
+}
