@@ -15,8 +15,10 @@
     * [nginx配置](linuxServer/nginx.md)
     * [通过公钥登录](linuxServer/ssh-login.md)
     * [linux服务管理](linuxServer/systemd.md)
+    * [docker使用](linuxServer/docker.md)
 * [网页相关](web/0.md)
     * [页面常用技巧](web/jiqiao.md)
     * [pwa webapp](web/pwa.md)
     * [vite插件](web/vite.md)
-
+* [react native](reactNative/0.md)
+    * [配置自定义OTA更新](reactNative/1.md)
