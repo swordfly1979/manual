@@ -476,7 +476,13 @@ git commit -m <span class="hljs-string">"提交日志"</span> <span class="hljs-
 git commit --amend <span class="hljs-comment">#修改最后一次提交的日志说明</span>
 git <span class="hljs-built_in">rm</span> --cached &lt;file name&gt; <span class="hljs-comment">#移除暂存区的文件(文件还未提交到版本库)</span>
 git reset HEAD &lt;file name&gt; <span class="hljs-comment">#移除暂存区的文件（文件已经提交过）</span>
-git checkout -- &lt;file name&gt; <span class="hljs-comment">#用版本库最后一次提交的文件替换工作区同名文件（文件更改撤消，-- 与文件名有空格）</span>
+
+<span class="hljs-comment">#-----关于指针头切换</span>
+git <span class="hljs-built_in">log</span> 查看所有提示记录
+git <span class="hljs-built_in">log</span> --oneline 将每条提交压缩为一行，仅显示简短哈希和提交说明，适合快速浏览
+git checkout &lt;commit_id&gt; 可以进入“游离状态”，查看历史某次提交的代码，但在这状态下提交代码容易丢失，建议看完就切回分支
+git checkout --all 查看所有提交历史
+git checkout -- &lt;branch name&gt; <span class="hljs-comment">#切换到最后一次提交状态</span>
 
 git ls-files -s <span class="hljs-comment">#查看暂存区文件</span>
 git cat-file -t &lt;file name&gt; <span class="hljs-comment">#查看.git库文件类型</span>
@@ -500,6 +506,7 @@ git pull &lt;别名&gt; &lt;分支名&gt; --allow-unrelated-histories <span clas
 <h2 id="分支操作"><a name="分支操作" class="anchor-navigation-ex-anchor" href="#分支操作"><i class="fa fa-link" aria-hidden="true"></i></a>分支操作</h2>
 <pre><code class="lang-bash">git branch <span class="hljs-comment">#查看分支</span>
 git branch &lt;branch name&gt; <span class="hljs-comment">#创建分支</span>
+git switch -c &lt;branch name&gt; <span class="hljs-comment">#创建分支新版</span>
 git branch -d &lt;branch name&gt; <span class="hljs-comment">#删除分支</span>
 git checkout &lt;branch name&gt; <span class="hljs-comment">#切换分支</span>
 git merge &lt;branch name&gt; <span class="hljs-comment">#将&lt;branch name&gt;分支合并到当前分支</span>
@@ -593,7 +600,7 @@ git pull origin master <span class="hljs-comment">#取远程master分支上的�
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"github","level":"1.2.1","depth":2,"next":{"title":"nodejs","level":"1.2.2","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},"previous":{"title":"linux常用工具","level":"1.2","depth":1,"path":"linux/linux.md","ref":"linux/linux.md","articles":[{"title":"github","level":"1.2.1","depth":2,"path":"linux/github.md","ref":"linux/github.md","articles":[]},{"title":"nodejs","level":"1.2.2","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},{"title":"gitbook","level":"1.2.3","depth":2,"path":"linux/gitbook.md","ref":"linux/gitbook.md","articles":[]},{"title":"pdf合并/压缩","level":"1.2.4","depth":2,"path":"linux/4.md","ref":"linux/4.md","articles":[]},{"title":"dd命令制作usb启动盘","level":"1.2.5","depth":2,"path":"linux/5.md","ref":"linux/5.md","articles":[]},{"title":"linux使用技巧","level":"1.2.6","depth":2,"path":"linux/6.md","ref":"linux/6.md","articles":[]},{"title":"yarn、npm使用","level":"1.2.7","depth":2,"path":"linux/7.md","ref":"linux/7.md","articles":[]},{"title":"iptables防火墙简单应用","level":"1.2.8","depth":2,"path":"linux/8.md","ref":"linux/8.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex","livereload"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"livereload":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"expandable-chapters":{}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"linux/github.md","mtime":"2026-06-17T07:21:34.773Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-06-18T03:20:40.834Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"github","level":"1.2.1","depth":2,"next":{"title":"nodejs","level":"1.2.2","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},"previous":{"title":"linux常用工具","level":"1.2","depth":1,"path":"linux/linux.md","ref":"linux/linux.md","articles":[{"title":"github","level":"1.2.1","depth":2,"path":"linux/github.md","ref":"linux/github.md","articles":[]},{"title":"nodejs","level":"1.2.2","depth":2,"path":"linux/nodejs.md","ref":"linux/nodejs.md","articles":[]},{"title":"gitbook","level":"1.2.3","depth":2,"path":"linux/gitbook.md","ref":"linux/gitbook.md","articles":[]},{"title":"pdf合并/压缩","level":"1.2.4","depth":2,"path":"linux/4.md","ref":"linux/4.md","articles":[]},{"title":"dd命令制作usb启动盘","level":"1.2.5","depth":2,"path":"linux/5.md","ref":"linux/5.md","articles":[]},{"title":"linux使用技巧","level":"1.2.6","depth":2,"path":"linux/6.md","ref":"linux/6.md","articles":[]},{"title":"yarn、npm使用","level":"1.2.7","depth":2,"path":"linux/7.md","ref":"linux/7.md","articles":[]},{"title":"iptables防火墙简单应用","level":"1.2.8","depth":2,"path":"linux/8.md","ref":"linux/8.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"linux/github.md","mtime":"2026-06-23T03:38:50.741Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-06-23T06:15:30.769Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
@@ -652,10 +659,6 @@ git pull origin master <span class="hljs-comment">#取远程master分支上的�
     
         
         <script src="../gitbook/gitbook-plugin-expandable-chapters/expandable-chapters.js"></script>
-        
-    
-        
-        <script src="../gitbook/gitbook-plugin-livereload/plugin.js"></script>
         
     
         
