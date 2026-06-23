@@ -19,8 +19,6 @@ export PS1='\u@:\w\[\033[01;31m\]$(git_branch)\[\033[00m\]\$ '
 source ~/.bashrc
 ```
 
-
-
 ## 本地操作
 
 ```bash
@@ -33,7 +31,13 @@ git commit -m "提交日志" #文件从暂存区提交到本地仓库
 git commit --amend #修改最后一次提交的日志说明
 git rm --cached <file name> #移除暂存区的文件(文件还未提交到版本库)
 git reset HEAD <file name> #移除暂存区的文件（文件已经提交过）
-git checkout -- <file name> #用版本库最后一次提交的文件替换工作区同名文件（文件更改撤消，-- 与文件名有空格）
+
+#-----关于指针头切换
+git log 查看所有提示记录
+git log --oneline 将每条提交压缩为一行，仅显示简短哈希和提交说明，适合快速浏览
+git checkout <commit_id> 可以进入“游离状态”，查看历史某次提交的代码，但在这状态下提交代码容易丢失，建议看完就切回分支
+git checkout --all 查看所有提交历史
+git checkout -- <branch name> #切换到最后一次提交状态
 
 git ls-files -s #查看暂存区文件
 git cat-file -t <file name> #查看.git库文件类型
@@ -66,6 +70,7 @@ git pull <别名> <分支名> --allow-unrelated-histories #拉取远程仓库合
 ```bash
 git branch #查看分支
 git branch <branch name> #创建分支
+git switch -c <branch name> #创建分支新版
 git branch -d <branch name> #删除分支
 git checkout <branch name> #切换分支
 git merge <branch name> #将<branch name>分支合并到当前分支
@@ -88,8 +93,6 @@ git push origin--tags #向远程推送标签
 git tag-d v1.0.0 #删除本地标签
 git push origin:refs/tags/V1.0.0 #删除远程标签
 ```
-
-
 
 ## Clone指定目录
 
@@ -127,20 +130,3 @@ git pull origin master #取远程master分支上的内容
  #更新子模块项目
  git submodule update --remote
 ```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
