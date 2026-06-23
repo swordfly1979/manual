@@ -7,7 +7,9 @@
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "deploy": "wrangler deploy",
+    "preview": "wrangler dev"
   },
   "repository": {
     "type": "git",
@@ -21,7 +23,8 @@
   },
   "homepage": "https://github.com/swordfly1979/manual#readme",
   "devDependencies": {
-    "honkit": "^6.2.2"
+    "honkit": "^6.2.2",
+    "wrangler": "^4.103.0"
   },
   "dependencies": {
     "gitbook-plugin-anchor-navigation-ex": "^1.0.14",
