@@ -445,76 +445,71 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><ul><li><span class="title-icon "></span><a href="#使用库-expo-open-ota"><b></b>使用库 Expo Open OTA</a></li><li><span class="title-icon "></span><a href="#大致使用方式及问题排除"><b></b>大致使用方式及问题排除</a></li></ul><li><span class="title-icon "></span><a href="#免费ota对比"><b></b>免费OTA对比</a></li></ul></div><a href="#" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h2 id="使用库-expo-open-ota"><a name="使用库-expo-open-ota" class="anchor-navigation-ex-anchor" href="#使用库-expo-open-ota"><i class="fa fa-link" aria-hidden="true"></i></a>使用库 Expo Open OTA</h2>
+                                <html><head></head><body><div id="anchor-navigation-ex-navbar"><i class="fa fa-navicon"></i><ul><li><span class="title-icon "></span><a href="#使用库-xprem"><b></b>使用库 xprem</a></li><ul><li><span class="title-icon "></span><a href="#大致使用方式及问题排除"><b></b>大致使用方式及问题排除</a></li></ul><li><span class="title-icon "></span><a href="#免费ota对比"><b></b>免费OTA对比</a></li><li><span class="title-icon "></span><a href="#postgresql-使用"><b></b>PostgreSQL 使用</a></li><ul><ul><li><span class="title-icon "></span><a href="#postgresql-docker-compose运行配置-docker-composeyml"><b></b>PostgreSql Docker compose运行配置 docker-compose.yml</a></li><li><span class="title-icon "></span><a href="#postgresql-导出和恢复指定数据库"><b></b>PostgreSQL 导出和恢复指定数据库</a></li></ul></ul></ul></div><a href="#使用库-xprem" id="anchorNavigationExGoTop"><i class="fa fa-arrow-up"></i></a><h1 id="使用库-xprem"><a name="使用库-xprem" class="anchor-navigation-ex-anchor" href="#使用库-xprem"><i class="fa fa-link" aria-hidden="true"></i></a>使用库 xprem</h1>
 <blockquote>
-<p>项目地址<a href="https://axelmarciano.github.io/expo-open-ota" target="_blank">https://axelmarciano.github.io/expo-open-ota</a></p>
+<p>项目地址<a href="https://www.xprem.dev/" target="_blank">www.xprem.dev</a></p>
 <p>开源，与expo深度整合，使用说明见官网</p>
 </blockquote>
 <h2 id="大致使用方式及问题排除"><a name="大致使用方式及问题排除" class="anchor-navigation-ex-anchor" href="#大致使用方式及问题排除"><i class="fa fa-link" aria-hidden="true"></i></a>大致使用方式及问题排除</h2>
 <blockquote>
-<p>只是大致步骤，具体使用方法见官网文档</p>
-<p>1.获取expo Access Token <a href="https://expo.dev/accounts/swordfly/settings/access-tokens" target="_blank">https://expo.dev/accounts/swordfly/settings/access-tokens</a></p>
-<p>2.Project ID Run <code>eas project:info</code> in your Expo project</p>
-<p>3.生成签名证书 npx eoas generate-certs in your Expo project</p>
-<ul>
-<li>此命令生成三个证书文件位于 certs/</li>
-<li>public-key.pem，private-key.pem(服务器用于签名和验证更新)。</li>
-<li>certificate.pem(用于app更新验证)<strong><em>注意：当执行eas build时需要上传此文件请在.gitignore中去除此目录或扩展名，eas build时会报错</em></strong></li>
-</ul>
-<p>4.服务端设置。</p>
+<p>具体使用方法见官网文档</p>
+<p>服务端设置使用docker运行</p>
 <pre><code class="lang-bash"><span class="hljs-comment">#docker-compose.yml文件 </span>
+<span class="hljs-comment"># 使用以下配置需要先执行以上命令创建docker网络</span>
+<span class="hljs-comment"># docker network create shared-network</span>
+networks:
+  shared-network:
+    external: <span class="hljs-literal">true</span>  <span class="hljs-comment"># 使用已存在的网络</span>
+    name: shared-network
 services:
-  expo-ota:
-    image: ghcr.io/axelmarciano/expo-open-ota:latest
-    network_mode: host <span class="hljs-comment">#如果使用podman-compose运行，添加此项配置，删除ports:"${PORT}:3000"</span>
-    container_name: expo-ota
-    restart: unless-stopped
+  xprem:
+    image: ghcr.io/mercuretechnologies/xprem:v3.1.1
+    container_name: xprem <span class="hljs-comment">#容器名称</span>
+    <span class="hljs-comment">#network_mode: host</span>
     ports:
-      - <span class="hljs-string">"<span class="hljs-variable">${PORT}</span>:3000"</span>
-    environment:
-      - BASE_URL=<span class="hljs-variable">${BASE_URL}</span>
-      - EXPO_ACCESS_TOKEN=<span class="hljs-variable">${EXPO_ACCESS_TOKEN}</span>
-      - EXPO_APP_ID=<span class="hljs-variable">${EXPO_APP_ID}</span>
-      - JWT_SECRET=<span class="hljs-variable">${JWT_SECRET}</span>
-      - STORAGE_MODE=<span class="hljs-variable">${STORAGE_MODE}</span>
-      - KEYS_STORAGE_TYPE=<span class="hljs-variable">${KEYS_STORAGE_TYPE}</span>
-      - PUBLIC_LOCAL_EXPO_KEY_PATH=<span class="hljs-variable">${PUBLIC_LOCAL_EXPO_KEY_PATH}</span>
-      - PRIVATE_LOCAL_EXPO_KEY_PATH=<span class="hljs-variable">${PRIVATE_LOCAL_EXPO_KEY_PATH}</span>
-      - CACHE_MODE=<span class="hljs-variable">${CACHE_MODE}</span>
-      - USE_DASHBOARD=<span class="hljs-variable">${USE_DASHBOARD}</span>
-      - ADMIN_PASSWORD=<span class="hljs-variable">${ADMIN_PASSWORD}</span>
+      - <span class="hljs-string">"3000:3000"</span>
+    env_file:
+      - .env.xprem
     volumes:
-      - ./certs:/keys:ro
-      - ./updates:/app/updates
-<span class="hljs-comment">#.env文件内容：</span>
-<span class="hljs-comment"># 端口</span>
-PORT=3000
+      - ./updates:/app/updates  <span class="hljs-comment">#当前目录下updates目录挂载到容器/app/updates</span>
+    platform: linux/amd64
+    networks:
+      - shared-network
+<span class="hljs-comment">#.env.xprem 为服务端配置文件</span>
+<span class="hljs-comment"># npx eoas server:init 执行此命令会在当前文件</span>
 
-<span class="hljs-comment"># 你的域名（必须 HTTPS）</span>
-BASE_URL=https://ota.xinde.org
+<span class="hljs-comment"># ----- Server -----</span>
+BASE_URL=https://ota.xinde.org <span class="hljs-comment">#必须为https</span>
+<span class="hljs-comment">#openssl rand -base64 32 命令生成</span>
+JWT_SECRET=Sp5+c+cdfDPSLF4AiDm6BtLuSjg3YFpeKUT1m4ABYxk= 
 
-<span class="hljs-comment"># Expo 项目信息</span>
-EXPO_ACCESS_TOKEN=expo access token
-EXPO_APP_ID=expo project <span class="hljs-built_in">id</span>
+<span class="hljs-comment"># ----- Database (control plane) -----</span>
+<span class="hljs-comment">#DB_URL=postgresql://:@:/xprem</span>
+<span class="hljs-comment">#此处@postgres_db为与当前docker在同一网络内的容器名。如果在同一网络为@localhost</span>
+DB_URL=postgresql://postgres:xinde1991@postgres_db:5432/xprem
+<span class="hljs-comment">#openssl rand -base64 32  命令生成</span>
+DB_KEYS_MASTER_KEY_B64=rPyuqaEfEj9r20rpib+3p7AzUYV7yMSRed6+HZ3tuCI=
 
-<span class="hljs-comment"># 安全密钥</span>
-JWT_SECRET= 32位秘钥  <span class="hljs-comment">#openssl rand -base64 32 命令生成</span>
-ADMIN_PASSWORD=admin password
+<span class="hljs-comment"># ----- Storage -----</span>
+STORAGE_MODE=<span class="hljs-built_in">local</span> 
+LOCAL_BUCKET_BASE_PATH=/app/updates
 
-<span class="hljs-comment"># 存储配置</span>
-STORAGE_MODE=<span class="hljs-built_in">local</span>
-KEYS_STORAGE_TYPE=<span class="hljs-built_in">local</span>
-PUBLIC_LOCAL_EXPO_KEY_PATH=/keys/public-key.pem
-PRIVATE_LOCAL_EXPO_KEY_PATH=/keys/private-key.pem
+<span class="hljs-comment"># ----- Cache -----</span>
 CACHE_MODE=<span class="hljs-built_in">local</span>
+
+<span class="hljs-comment"># ----- Dashboard -----</span>
 USE_DASHBOARD=<span class="hljs-literal">true</span>
-<span class="hljs-comment">#以上文件配置好后在哪前目录运行</span>
+ADMIN_EMAIL=admin@xinde.org
+ADMIN_PASSWORD=Xinde_1991
+
+
+<span class="hljs-comment">#以上文件配置好后在当前目录运行</span>
 <span class="hljs-comment">#docker compose up -d 起动docker容器</span>
 <span class="hljs-comment"># docker compose down 是结束容器</span>
 <span class="hljs-comment"># docker常见命令</span>
-<span class="hljs-comment">#    删除容器 docker rm -f expo-ota</span>
+<span class="hljs-comment">#    删除容器 docker rm -f  [容器名]</span>
 <span class="hljs-comment">#    查看容器运行状态 docker ps</span>
-<span class="hljs-comment">#    查看运行中容器 docker logs expo-ota</span>
+<span class="hljs-comment">#    查看运行中容器 docker logs [容器名]</span>
 <span class="hljs-comment">#=================以下为minio对像存储配置</span>
 version: <span class="hljs-string">'3.8'</span>
 
@@ -600,6 +595,58 @@ services:
 </tr>
 </tbody>
 </table>
+<h1 id="postgresql-使用"><a name="postgresql-使用" class="anchor-navigation-ex-anchor" href="#postgresql-使用"><i class="fa fa-link" aria-hidden="true"></i></a>PostgreSQL 使用</h1>
+<h3 id="postgresql-docker-compose运行配置-docker-composeyml"><a name="postgresql-docker-compose运行配置-docker-composeyml" class="anchor-navigation-ex-anchor" href="#postgresql-docker-compose运行配置-docker-composeyml"><i class="fa fa-link" aria-hidden="true"></i></a>PostgreSql Docker compose运行配置 docker-compose.yml</h3>
+<blockquote>
+<p>先创建网络（命令行）
+docker network create shared-network</p>
+</blockquote>
+<pre><code>
+networks:
+  shared-network:
+    external: true  # 使用已存在的网络
+    name: shared-network
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres_db
+    restart: unless-stopped
+
+    environment:
+      # 注意：这里设置的密码要与原系统一致，或者后续修改
+      POSTGRES_PASSWORD: xinde1991 
+      POSTGRES_USER: postgres  # 使用默认超级用户
+      PGDATA: /var/lib/postgresql/data/pgdata
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+    # 使用命名卷(postgres_data挂载到容器内/var/lib/postgresql/data)
+      - postgres_data:/var/lib/postgresql/data 
+      # 挂载备份文件目录，方便恢复
+      - /tmp:/tmp/backups
+
+    networks:
+      - shared-network
+
+volumes:
+# 声明一个名为 postgres_data 的命名卷。docker Volume --help查看相应用法
+# Docker 管理的 Volume，实际存储在/var/lib/docker/volumes/postgres_data/_data/
+  postgres_data: 
+    driver: local
+    name: postgres_data
+</code></pre><h3 id="postgresql-导出和恢复指定数据库"><a name="postgresql-导出和恢复指定数据库" class="anchor-navigation-ex-anchor" href="#postgresql-导出和恢复指定数据库"><i class="fa fa-link" aria-hidden="true"></i></a>PostgreSQL 导出和恢复指定数据库</h3>
+<pre><code class="lang-Shell"><span class="hljs-meta prompt_">#</span><span class="language-bash">导出数据库</span>
+pg_dump -U postgres -h localhost databaseName &gt; databaseName.sql
+<span class="hljs-meta prompt_">#</span><span class="language-bash">恢复数据库</span>
+<span class="hljs-meta prompt_">#</span><span class="language-bash">恢复前需准备好目标数据库。为避免冲突，推荐从干净的 template0 数据库创建</span>
+pg_dump -U postgres -h localhost  #进入数据库
+CREATE DATABASE databaseName TEMPLATE template0;
+exit;
+psql -U postgres -h localhost -d databaseName -f databaseName.sql; #恢复数据库
+</code></pre>
 </body></html>
                                 
                                 </section>
@@ -639,7 +686,7 @@ services:
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"配置自定义OTA更新","level":"1.5.1","depth":2,"previous":{"title":"react native","level":"1.5","depth":1,"path":"reactNative/0.md","ref":"reactNative/0.md","articles":[{"title":"配置自定义OTA更新","level":"1.5.1","depth":2,"path":"reactNative/1.md","ref":"reactNative/1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"reactNative/1.md","mtime":"2026-06-18T05:21:15.919Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-06-23T06:15:30.769Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"配置自定义OTA更新","level":"1.5.1","depth":2,"previous":{"title":"react native","level":"1.5","depth":1,"path":"reactNative/0.md","ref":"reactNative/0.md","articles":[{"title":"配置自定义OTA更新","level":"1.5.1","depth":2,"path":"reactNative/1.md","ref":"reactNative/1.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["chapter-fold","expandable-chapters","anchor-navigation-ex"],"styles":{"website":"website.css"},"pluginsConfig":{"chapter-fold":{},"anchor-navigation-ex":{"showLevel":false,"associatedWithSummary":true,"mode":"float","showGoTop":true,"printLog":false,"multipleH1":true,"float":{"floatIcon":"fa fa-navicon","showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""},"pageTop":{"showLevelIcon":false,"level1Icon":"","level2Icon":"","level3Icon":""}},"expandable-chapters":{},"highlight":{},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"embedFonts":false},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"常用手册","gitbook":"*"},"file":{"path":"reactNative/1.md","mtime":"2026-08-11T07:40:14.373Z","type":"markdown"},"gitbook":{"version":"6.2.2","time":"2026-08-11T07:44:45.793Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
